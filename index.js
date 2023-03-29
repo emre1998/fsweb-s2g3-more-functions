@@ -16,9 +16,19 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(dosyaYolu) {
+  const dosyaYoluParcalari = dosyaYolu.split("/");
+  return dosyaYoluParcalari[dosyaYoluParcalari.length - 1];
 }
+
+console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"));
+// "Beethoven_5.mp3"
+
+console.log(dosyaAdiniBul("Beethoven_5.mp3"));
+// "Beethoven_5.mp3"
+
+console.log(dosyaAdiniBul(""));
+// ""
 
 /*
   GÖREV 2
@@ -38,9 +48,30 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(sayilar) {
+  if (sayilar.length === 0) {
+    return null;
+  }
+
+  let toplam = 0;
+  for (let i = 0; i < sayilar.length; i++) {
+    toplam += sayilar[i];
+  }
+
+  return toplam / sayilar.length;
 }
+
+console.log(ortalamaBul([]));
+// null
+
+console.log(ortalamaBul([4]));
+// 4
+
+console.log(ortalamaBul([50, -26, 153, 7]));
+// 46
+
+console.log(ortalamaBul([109, 216, 288, 143, 71, 185, -278, 194, 5]));
+// 104
 
 /*
   GÖREV 3
@@ -62,9 +93,35 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(sayilar, ortalamaBul) {
+  const sonuc = [];
+
+  const ortalama = ortalamaBul(sayilar);
+  for (let i = 0; i < sayilar.length; i++) {
+    if (sayilar[i] >= ortalama) {
+      sonuc.push(sayilar[i]);
+    }
+  }
+
+  if (sonuc.length === 0) {
+    return null;
+  }
+
+  return sonuc;
 }
+
+console.log(ortalamadanBuyukleriBul([], ortalamaBul));
+// null
+
+console.log(ortalamadanBuyukleriBul([4], ortalamaBul));
+// [4]
+
+console.log(ortalamadanBuyukleriBul([50, -26, 153, 7], ortalamaBul));
+// [50, 153]
+
+console.log(ortalamadanBuyukleriBul([109, 216, 288, 143, 71, 185, -278, 194, 5], ortalamaBul));
+// [109, 216, 288, 143, 185, 194]
+
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
